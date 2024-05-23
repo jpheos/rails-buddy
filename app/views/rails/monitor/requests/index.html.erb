@@ -1,0 +1,9 @@
+<h1>Monitoring</h1>
+
+<%= button_to 'clear', clear_requests_path %>
+
+<ul>
+  <% @requests.each do |request| %>
+    <li><b>[<%= request.time.strftime("%Y_%m_%d_%H_%M_%S_%L") %>]</b> <%= request.url %></li>
+  <% end %>
+</ul>

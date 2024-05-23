@@ -1,8 +1,12 @@
 require "rails/monitor/version"
-require "rails/monitor/engine"
 
 module Rails
   module Monitor
-    # Your code goes here...
+    autoload :VERSION, "rails/monitor/version"
+    autoload :Current, "rails/monitor/current"
+    autoload :Request, "rails/monitor/request"
+    autoload :RequestsBuffer, "rails/monitor/requests_buffer"
   end
 end
+
+require "rails/monitor/engine"
