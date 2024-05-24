@@ -6,6 +6,9 @@ module Rails
       end
 
       def call(env)
+        Monitor::Current.ignore = Monitor.config.ignore_request?(env)
+        return @app.call(env) if Monitor::Current.ignore?
+
         Monitor::Current.new_request!(url: env['ORIGINAL_FULLPATH'])
         ret = @app.call(env)
         Monitor::RequestsBuffer.push(Monitor::Current.pop_request!)
