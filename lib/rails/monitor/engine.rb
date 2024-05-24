@@ -13,10 +13,15 @@ module Rails
         app.middleware.insert_after ActionDispatch::Executor, TrackCurrentRequest
       end
 
-      initializer 'rails_monitor.precompile', group: :all do |app|
+      initializer 'rails_monitor.precompile' do |app|
         app.config.assets.precompile += %w[
           rails/monitor/application.css
         ]
+      end
+
+      initializer 'rails_monitor.subscribe' do |app|
+        require_relative 'subscribers/action_controller'
+        Subscribers::ActionController.subscribe
       end
     end
   end

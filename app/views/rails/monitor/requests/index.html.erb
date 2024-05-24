@@ -4,6 +4,11 @@
 
 <ul>
   <% @requests.each do |request| %>
-    <li><b>[<%= request.time.strftime("%Y_%m_%d_%H_%M_%S_%L") %>]</b> <%= request.url %></li>
+    <li>
+      <b>[<%= request.time.strftime("%Y_%m_%d_%H_%M_%S_%L") %>]</b> <%= request.url %>
+      <%= raw(ap request.meta) %>
+      <%= raw(ap request.request) %>
+      <%= raw(ap request.response) %>
+    </li>
   <% end %>
 </ul>

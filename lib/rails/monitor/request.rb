@@ -2,6 +2,7 @@ module Rails
   module Monitor
     class Request
       attr_reader :request_id, :url, :time
+      attr_accessor :request, :response, :meta
 
       def initialize(url:)
         @request_id = SecureRandom.uuid
