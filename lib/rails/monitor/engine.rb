@@ -16,6 +16,7 @@ module Rails
       initializer 'rails_monitor.precompile' do |app|
         app.config.assets.precompile += %w[
           rails/monitor/application.css
+          rails/monitor/application.js
         ]
       end
 

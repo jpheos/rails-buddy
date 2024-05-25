@@ -6,6 +6,6 @@ then
   gem install foreman
 fi
 
-echo -e "css: yarn build:css --watch" > /tmp/Procfile.rails_monitor_dev
+echo -e "css: yarn build:css --watch\njs: yarn build --watch" > /tmp/Procfile.rails_monitor_dev
 
 foreman start -f /tmp/Procfile.rails_monitor_dev --root=.
