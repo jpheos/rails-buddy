@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if ! command -v foreman &> /dev/null
+then
+  echo "Installing foreman..."
+  gem install foreman
+fi
+
+echo -e "css: yarn build:css --watch" > /tmp/Procfile.rails_monitor_dev
+
+foreman start -f /tmp/Procfile.rails_monitor_dev --root=.

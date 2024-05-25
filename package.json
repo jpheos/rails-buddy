@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "tailwindcss": "^3.4.3"
+  },
+  "scripts": {
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/rails/monitor/application.css -o ./app/assets/builds/rails/monitor/application.css --minify"
+  }
+}

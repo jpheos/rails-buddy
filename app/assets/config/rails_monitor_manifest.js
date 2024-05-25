@@ -1,1 +1,1 @@
-//= link_directory ../stylesheets/rails/monitor .css
+//= link_directory ../builds/rails/monitor
