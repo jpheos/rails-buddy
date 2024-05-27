@@ -10,7 +10,7 @@ module Rails
       end
 
       def ignore_request?(env)
-        [prefix, "/assets"].any? { |s| env['PATH_INFO'].start_with? s }
+        [prefix, "/assets"].any? { |s| env['PATH_INFO'].start_with? s } || env['HTTP_UPGRADE'] == 'websocket'
       end
 
       private

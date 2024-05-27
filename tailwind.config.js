@@ -1,10 +1,20 @@
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: [
     './app/views/**/*.html.erb',
     './app/assets/stylesheets/rails/monitor/tailwind.css'
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateRows: {
+        layout: 'auto minmax(0, 1fr)',
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant('request-opened', ['.request-opened &', '.request-opened&'])
+    })
+  ],
 }

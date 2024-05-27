@@ -6,6 +6,10 @@ module Rails
           @collection = []
         end
 
+        def find(id)
+          @collection.find { |r| r.id == id }
+        end
+
         def push(request)
           @collection << request
         end

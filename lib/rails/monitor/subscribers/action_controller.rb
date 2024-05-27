@@ -8,7 +8,7 @@ module Rails
 
         class << self
           def process_action(event)
-            return if Monitor::Current.ignore?
+            return if Monitor::Current.ignore? || Current.request.nil?
             meta = event.payload
 
             meta.delete :headers
