@@ -13,6 +13,13 @@ module Rails
         app.middleware.insert_after ActionDispatch::Executor, TrackCurrentRequest
       end
 
+      initializer 'rails_monitor.routing' do |app|
+        app.routes.append do
+          mount Engine => Monitor.config.prefix
+        end
+      end
+
+
       initializer 'rails_monitor.precompile' do |app|
         app.config.assets.precompile += %w[
           rails/monitor/application.css
