@@ -12,6 +12,10 @@ module Rails
       def config
         @config ||= Config.new
       end
+
+      def configure
+        yield config
+      end
     end
   end
 end
