@@ -11,7 +11,12 @@ module Rails
 
         Monitor::Current.new_request!(url: env['ORIGINAL_FULLPATH'])
         ret = @app.call(env)
-        Monitor::RequestsBuffer.push(Monitor::Current.pop_request!)
+
+        request = Monitor::Current.pop_request!
+        Monitor::RequestsBuffer.push(request)
+
+        Turbo::StreamsChannel.broadcast_prepend_to :requests, target: :requests, partial: 'rails/monitor/requests/request', locals: { request: }
+
         ret
       end
     end

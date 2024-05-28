@@ -1,0 +1,8 @@
+<%= link_to "#{Rails::Monitor.config.prefix}/requests/#{request.id}", class: 'grid grid-cols-8 even:bg-zinc-200 p-2', data: {turbo_frame: :request} do %>
+  <div><%= request.time.strftime("%H:%M:%S:%L") %></div>
+  <div><%= request.meta[:method] %></div>
+  <div class="col-span-2"><%= request.meta[:path].truncate(60) %></div>
+  <div class="col-span-2"><%= request.meta[:controller] %></div>
+  <div><%= request.meta[:action] %></div>
+  <div><%= request.meta[:status] %></div>
+<% end %>

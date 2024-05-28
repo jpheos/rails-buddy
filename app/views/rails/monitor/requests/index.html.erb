@@ -1,3 +1,5 @@
+<%= turbo_stream_from :requests %>
+
 <%= content_tag :div, data: {controller: 'home', action: 'keydown.esc->home#closeRequest'}, class: 'grid h-screen grid-rows-[auto_minmax(0,_1fr)]' do %>
   <div class="sticky top-0 z-10 flex items-center justify-between h-20 px-4 bg-yellow-300">
     <h1 class="text-2xl font-bold">Monitoring</h1>
@@ -14,15 +16,8 @@
         <% end %>
       </div>
 
-      <% @requests.each do |request| %>
-        <%= link_to request_path(request.id), class: 'grid grid-cols-8 even:bg-zinc-200 p-2', data: {turbo_frame: :request} do %>
-          <div><%= request.time.strftime("%H:%M:%S:%L") %></div>
-          <div><%= request.meta[:method] %></div>
-          <div class="col-span-2"><%= request.meta[:path].truncate(60) %></div>
-          <div class="col-span-2"><%= request.meta[:controller] %></div>
-          <div><%= request.meta[:action] %></div>
-          <div><%= request.meta[:status] %></div>
-        <% end %>
+      <%= content_tag :div, id: :requests do %>
+        <%= render partial: 'request', collection: @requests %>
       <% end %>
     </div>
     <div class="absolute right-0 w-3/4 h-full p-8 transition-all translate-x-full bg-white shadow request-opened:translate-x-0">
