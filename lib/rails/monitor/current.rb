@@ -7,8 +7,8 @@ module Rails
 
       alias_method :ignore?, :ignore
 
-      def new_request!(url:)
-        self.request = Request.new(url: )
+      def new_request!(rack_env)
+        self.request = Request.from_rack_env(rack_env)
       end
 
       def pop_request!

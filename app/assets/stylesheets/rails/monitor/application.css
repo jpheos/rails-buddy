@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gray-50;
+@layer utilities {
+  .requests-grid {
+    @apply  p-2 grid;
+    grid-template-columns: 60px 2fr  60px 1fr 150px;
+  }
+}
+
+.requests-header {
+  @apply bg-gray-50 font-semibold;
+}
+
+.request-line {
+  @apply bg-white odd:bg-gray-50 py-2 requests-grid;
+
+  .method {
+    @apply px-2 py-0.5 rounded text-sm font-semibold text-center;
+  }
+  .method.method--get { @apply bg-green-200 text-green-900 }
+  .method.method--post { @apply bg-blue-200 text-blue-900 }
+  .method.method--put { @apply bg-yellow-200 text-yellow-900 }
+  .method.method--patch { @apply bg-yellow-200 text-yellow-900 }
+  .method.method--delete { @apply bg-red-200 text-red-900 }
+  .method.method--option { @apply bg-gray-200 text-gray-900 }
+
+  .status {
+    @apply px-2 py-0.5 rounded text-sm font-semibold mx-2 text-center;
+  }
+  .status.status--success { @apply text-green-500 }
+  .status.status--redirect { @apply text-gray-500 }
+  .status.status--error { @apply text-orange-500 }
+  .status.status--fatal-error { @apply text-red-500 }
 }

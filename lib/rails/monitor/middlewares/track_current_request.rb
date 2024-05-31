@@ -9,13 +9,20 @@ module Rails
         Monitor::Current.ignore = Monitor.config.ignore_request?(env)
         return @app.call(env) if Monitor::Current.ignore?
 
-        Monitor::Current.new_request!(url: env['ORIGINAL_FULLPATH'])
+
+        request = ::Rack::Request.new(env)
+
+        Monitor::Current.new_request!(env)
         ret = @app.call(env)
 
-        request = Monitor::Current.pop_request!
-        Monitor::RequestsBuffer.push(request)
 
-        Turbo::StreamsChannel.broadcast_prepend_to :requests, target: :requests, partial: 'rails/monitor/requests/request', locals: { request: }
+        request = Monitor::Current.pop_request!
+        if request
+          request.status = ret[0]
+          Monitor::RequestsBuffer.push(request)
+
+          Turbo::StreamsChannel.broadcast_append_to :requests, target: :requests, partial: 'rails/monitor/requests/request', locals: { request: }
+        end
 
         ret
       end
