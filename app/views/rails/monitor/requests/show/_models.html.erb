@@ -1,0 +1,10 @@
+<table class="table-auto">
+  <tbody class="divide-y">
+    <% models.sort_by {|_k, v| -v }.to_h.each do |model_name, count| %>
+      <tr class="">
+        <td class="px-2 py-1 font-semibold"><%= model_name %></td>
+        <td><span class="badge"><%= count %></span></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

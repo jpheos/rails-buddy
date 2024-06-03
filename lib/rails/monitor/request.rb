@@ -21,7 +21,7 @@ module Rails
         end
       end
 
-      attr_reader :request_id, :path, :method, :time
+      attr_reader :request_id, :path, :method, :time, :models, :queries
       attr_accessor :request, :response, :meta, :status
 
       alias_method :id, :request_id
@@ -31,6 +31,8 @@ module Rails
         @time = Time.current
         @path = path
         @method = method
+        @models = Hash.new(0)
+        @queries = []
       end
 
       def familly_status
@@ -42,6 +44,14 @@ module Rails
         else
           'UNKNOWN'
         end
+      end
+
+      def add_model(model)
+        @models[model.class.to_s] += 1
+      end
+
+      def add_query(query)
+        @queries << query
       end
     end
   end

@@ -7,6 +7,7 @@ module Rails
     autoload :Current, "rails/monitor/current"
     autoload :Request, "rails/monitor/request"
     autoload :RequestsBuffer, "rails/monitor/requests_buffer"
+    autoload :Tracker, "rails/monitor/tracker"
 
     class << self
       def config

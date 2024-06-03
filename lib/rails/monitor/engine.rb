@@ -19,7 +19,6 @@ module Rails
         end
       end
 
-
       initializer 'rails_monitor.precompile' do |app|
         app.config.assets.precompile += %w[
           rails/monitor/application.css
@@ -30,6 +29,8 @@ module Rails
       initializer 'rails_monitor.subscribe' do |app|
         require_relative 'subscribers/action_controller'
         Subscribers::ActionController.subscribe
+        require_relative 'subscribers/active_record'
+        Subscribers::ActiveRecord.subscribe
       end
     end
   end

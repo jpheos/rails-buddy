@@ -1,0 +1,11 @@
+<div class="divide-y">
+  <% queries.each do |query| %>
+    <div class="py-4">
+      <h3 class="mb-2 font-bold"><%= query[:title] %></h3>
+      <pre data-controller="code-syntax"
+        data-code-syntax-query-value="<%= {sql: query[:sql]}.to_json %>"
+        class="w-full overflow-x-auto"><%= query[:sql].html_safe %>
+      </pre>
+    </div>
+  <% end %>
+</div>

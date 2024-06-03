@@ -2,6 +2,8 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.4",
+    "highlight.js": "^11.9.0",
+    "sql-formatter": "^15.3.1",
     "tailwindcss": "^3.4.3"
   },
   "scripts": {

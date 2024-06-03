@@ -15,8 +15,7 @@
   </div>
 
   <div class="relative flex overflow-x-hidden">
-    <div class="w-full max-h-full overflow-y-auto">
-
+    <div class="w-full max-h-full overflow-y-auto" data-action="click->home#closeRequest:self">
       <div class="requests-grid requests-header">
         <span>Method</span>
         <span class="px-4">Path</span>
@@ -28,9 +27,7 @@
         <%= render partial: 'request', collection: @requests %>
       <% end %>
     </div>
-    <div class="absolute right-0 w-3/4 h-full p-8 transition-all translate-x-full bg-white shadow request-opened:translate-x-0">
-      <span class="absolute cursor-pointer top-2 right-2" data-action="click->home#closeRequest">close</span>
-
+    <div class="absolute right-0 w-3/4 h-full overflow-y-auto transition-all translate-x-full bg-white shadow request-opened:translate-x-0">
       <%= turbo_frame_tag :request, data: {action: 'turbo:frame-load->home#openRequest'} %>
     </div>
   </div>

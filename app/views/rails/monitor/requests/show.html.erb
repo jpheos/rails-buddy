@@ -1,3 +1,31 @@
 <%= turbo_frame_tag :request do %>
-  <%= raw(ap @request.meta) %>
+  <div data-controller="tabs">
+    <ul class="flex border-b">
+      <li data-action="click->tabs#nav" data-tabs-target="tab" target="controller" class="current">Controller</li>
+      <li data-action="click->tabs#nav" data-tabs-target="tab" target="models">
+        Models
+        <% if @request.models.present? %>
+          <span><%= @request.models.values.sum %></span>
+        <% end %>
+      </li>
+      <li data-action="click->tabs#nav" data-tabs-target="tab" target="queries">
+        Queries
+        <% if @request.queries.present? %>
+          <span><%= @request.queries.size %></span>
+        <% end %>
+      </li>
+    </ul>
+
+    <div data-tabs-target="panel" id="controller">
+      <%= raw(ap @request.meta) %>
+    </div>
+
+    <div data-tabs-target="panel" id="models" class="hidden">
+      <%= render 'rails/monitor/requests/show/models', models: @request.models %>
+    </div>
+
+    <div data-tabs-target="panel" id="queries" class="hidden">
+      <%= render 'rails/monitor/requests/show/queries', queries: @request.queries %>
+    </div>
+  </div>
 <% end %>
