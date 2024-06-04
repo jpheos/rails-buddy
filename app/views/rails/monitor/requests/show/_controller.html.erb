@@ -1,0 +1,60 @@
+<h3 class="flex items-center gap-4 p-2 mb-8 border border-gray-300 rounded bg-gray-50">
+  <span class="font-semibold text-indigo-500 uppercase"><%= @request.method %></span>
+  <span class="flex-grow truncate"><%= @request.path %></span>
+  <% if @request.meta %>
+    <span class="font-semibold text-gray-700 uppercase"><%= @request.meta[:format] %></span>
+  <% end %>
+</h3>
+
+
+<% if @request.meta %>
+  <div class="p-2 mb-8 border border-gray-300 rounded bg-gray-50">
+      <%= @request.meta[:params] %>
+  </div>
+
+  <div class="flex items-center gap-4 mb-8">
+    <p class="font-semibold"><%= @request.meta[:controller] %><span class="text-indigo-500">#</span><%= @request.meta[:action] %></p>
+    <%= link_to "Open in Vscode", "vscode://file#{@request.action_definition}", class: 'text-xs' %>
+  </div>
+
+  <table class="table-auto">
+    <tbody class="divide-y">
+      <% if @request.meta[:view_runtime].presence %>
+        <tr>
+          <td class="px-2 py-1 font-semibold">view_runtime</td>
+          <td><span class="badge"><%= @request.meta[:view_runtime].round(2) %> ms</span></td>
+        </tr>
+      <% end %>
+      <% if @request.meta[:db_runtime].presence %>
+        <tr>
+          <td class="px-2 py-1 font-semibold">db_runtime</td>
+          <td><span class="badge"><%= @request.meta[:db_runtime].round(2) %> ms</span></td>
+        </tr>
+      <% end %>
+      <% if @request.meta[:duration].presence %>
+        <tr>
+          <td class="px-2 py-1 font-semibold">duration</td>
+          <td><span class="badge"><%= @request.meta[:duration].round(2) %> ms</span></td>
+        </tr>
+      <% end %>
+      <% if @request.meta[:cpu_time].presence %>
+        <tr>
+          <td class="px-2 py-1 font-semibold">cpu_time</td>
+          <td><span class="badge"><%= @request.meta[:cpu_time].round(2) %> ms</span></td>
+        </tr>
+      <% end %>
+      <% if @request.meta[:idle_time].presence %>
+        <tr>
+          <td class="px-2 py-1 font-semibold">idle_time</td>
+          <td><span class="badge"><%= @request.meta[:idle_time].round(2) %> ms</span></td>
+        </tr>
+      <% end %>
+      <% if @request.meta[:allocations].presence %>
+        <tr>
+          <td class="px-2 py-1 font-semibold">allocations</td>
+          <td><span class="badge"><%= @request.meta[:allocations] %></span></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

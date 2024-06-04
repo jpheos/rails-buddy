@@ -17,7 +17,7 @@
     </ul>
 
     <div data-tabs-target="panel" id="controller">
-      <%= raw(ap @request.meta) %>
+      <%= render 'rails/monitor/requests/show/controller' %>
     </div>
 
     <div data-tabs-target="panel" id="models" class="hidden">

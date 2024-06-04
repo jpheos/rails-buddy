@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  a {
+    @apply text-indigo-500 hover:text-indigo-700;
+  }
+}
+
 @layer utilities {
   .requests-grid {
     @apply  p-2 grid;
@@ -28,7 +34,7 @@
 }
 
 .request-line {
-  @apply bg-white odd:bg-gray-50 py-2 requests-grid text-xs;
+  @apply bg-white odd:bg-gray-50 py-2 requests-grid text-xs text-black hover:text-black hover:bg-indigo-50 items-center;
 
   .method {
     @apply px-2 py-0.5 rounded font-semibold text-center border;

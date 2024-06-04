@@ -53,6 +53,12 @@ module Rails
       def add_query(query)
         @queries << query
       end
+
+      def action_definition
+        return unless meta[:controller] && meta[:action]
+
+        meta[:controller].constantize.instance_method(meta[:action]).source_location.join(':')
+      end
     end
   end
 end
