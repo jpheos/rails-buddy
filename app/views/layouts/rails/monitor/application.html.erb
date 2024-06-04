@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag    "rails/monitor/application", media: "all" %>
   <%= javascript_include_tag "rails/monitor/application", media: "all" %>
 </head>
-<body>
+<body data-controller="home" data-action="keydown.esc->home#closeRequest">
   <%= yield %>
 </body>
 </html>

@@ -13,6 +13,14 @@
   .badge {
     @apply text-sm rounded-full bg-gray-100 px-2 py-1;
   }
+
+  .h-navbar {
+    height: 4rem;
+  }
+
+  .h-full-nonav {
+    height: calc(100vh - 4rem);
+  }
 }
 
 .requests-header {
@@ -20,20 +28,20 @@
 }
 
 .request-line {
-  @apply bg-white odd:bg-gray-50 py-2 requests-grid;
+  @apply bg-white odd:bg-gray-50 py-2 requests-grid text-xs;
 
   .method {
-    @apply px-2 py-0.5 rounded text-sm font-semibold text-center;
+    @apply px-2 py-0.5 rounded font-semibold text-center border;
   }
-  .method.method--get { @apply bg-green-200 text-green-900 }
-  .method.method--post { @apply bg-blue-200 text-blue-900 }
-  .method.method--put { @apply bg-yellow-200 text-yellow-900 }
-  .method.method--patch { @apply bg-yellow-200 text-yellow-900 }
-  .method.method--delete { @apply bg-red-200 text-red-900 }
-  .method.method--option { @apply bg-gray-200 text-gray-900 }
+  .method.method--get { @apply bg-gray-50 text-gray-700 border-gray-500 }
+  .method.method--post { @apply bg-blue-50 text-blue-700 border-blue-500 }
+  .method.method--put { @apply bg-yellow-50 text-yellow-700 border-yellow-500 }
+  .method.method--patch { @apply bg-yellow-50 text-yellow-700 border-yellow-500 }
+  .method.method--delete { @apply bg-red-50 text-red-700 border-red-500 }
+  .method.method--option { @apply bg-gray-50 text-gray-700 border-gray-500 }
 
   .status {
-    @apply px-2 py-0.5 rounded text-sm font-semibold mx-2 text-center;
+    @apply px-2 py-0.5 rounded font-semibold mx-2 text-center;
   }
   .status.status--success { @apply text-green-500 }
   .status.status--redirect { @apply text-gray-500 }
@@ -42,7 +50,7 @@
 }
 
 [data-tabs-target="target"] {
-  @apply bg-red-200;
+  @apply bg-red-500;
 }
 
 [data-tabs-target="tab"] {
