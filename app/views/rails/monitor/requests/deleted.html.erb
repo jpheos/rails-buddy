@@ -1,0 +1,14 @@
+<%= turbo_frame_tag :request do %>
+  <div class="p-8">
+    <p class="font-bold">This request has been <span class="text-red-500">deleted</span>.</p>
+
+    <p class="mb-4">You exceeded the maximum number of requests that can be stored in buffer. You can increase the limit by changing the value of buffer size in the configuration file.</p>
+
+    <pre class="border border-gray-300 rounded bg-gray-50">
+      <code>
+  Rails::Monitor.configure do |config|
+    config.buffer_size = <%= Rails::Monitor::Config::DEFAULT_BUGGER_SIZE * 2 %> # default is <%= Rails::Monitor::Config::DEFAULT_BUGGER_SIZE %>
+  end</code>
+    </pre>
+  </div>
+<% end %>

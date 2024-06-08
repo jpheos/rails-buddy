@@ -1,12 +1,16 @@
 module Rails
   module Monitor
     class Config
-      attr_accessor :prefix
+      DEFAULT_BUGGER_SIZE = 200
+      DEFAULT_PATH_PREFIX = '/monitoring'
+
+      attr_accessor :prefix, :buffer_size
 
       def initialize(options = {})
         opt = defaults.merge options
 
-        @prefix = opt[:prefix]
+        @prefix       = opt[:prefix]
+        @buffer_size  = opt[:buffer_size]
       end
 
       def ignore_request?(env)
@@ -18,7 +22,8 @@ module Rails
       def defaults
         {
           enabled: Rails.env.development?,
-          prefix: "/monitoring"
+          prefix: DEFAULT_PATH_PREFIX,
+          buffer_size: DEFAULT_BUGGER_SIZE
         }
       end
     end

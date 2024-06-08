@@ -7,6 +7,7 @@ module Rails
 
       def show
         @request = RequestsBuffer.find(params[:id])
+        render :deleted if @request.nil?
       end
 
       def clear

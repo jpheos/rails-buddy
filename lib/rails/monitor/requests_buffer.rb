@@ -12,6 +12,8 @@ module Rails
 
         def push(request)
           @collection << request
+          @collection.shift if @collection.size > Monitor.config.buffer_size
+          true
         end
 
         def all
