@@ -21,6 +21,14 @@ Or install it yourself as:
 $ gem install rails-monitor
 ```
 
+Rails::Monitor works without any configuration. Just go to http://localhost:3000/monitoring.
+
+If you want configure option, just run:
+
+```bash
+$ rails g rails:monitor:config
+```
+
 ## Contributing
 Contribution directions go here.
 
