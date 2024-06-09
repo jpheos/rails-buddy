@@ -15,6 +15,8 @@ module.exports = {
   plugins: [
     plugin(function ({ addVariant }) {
       addVariant('request-opened', ['.request-opened &', '.request-opened&'])
+      addVariant('formatted', ['.formatted &', '.formatted&'])
+      addVariant('copied', ['.copied &', '.copied&'])
       addVariant('current', ['.current &', '.current&'])
     })
   ],
