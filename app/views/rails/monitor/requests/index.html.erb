@@ -21,7 +21,7 @@
     <span>Action</span>
   </div>
   <div class="flex-grow overflow-y-auto">
-    <%= content_tag :div, id: :requests, class: 'flex flex-col-reverse bg-red-100' do %>
+    <%= content_tag :div, id: :requests, class: 'flex flex-col-reverse' do %>
       <%= render partial: 'request', collection: @requests %>
     <% end %>
   </div>

@@ -1,0 +1,50 @@
+<svg id="svg_expand" class="h-4" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    #svg_expand {
+      line {
+        stroke: var(--color1);
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: all 0.3s ease-in-out;
+      }
+
+      path {
+        fill: var(--color2);
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: all 0.3s ease-in-out;
+        transform: scaleY(-1);
+      }
+
+      line {
+        transform: translateY(var(--translate));
+      }
+
+      #linetop {
+        --translate: 10px;
+        opacity: 0;
+      }
+
+      #linebottom {
+        --translate: -9px;
+        opacity: 0;
+      }
+    }
+
+    .<%= css_class_expanded %> #svg_expand {
+      line {
+        transform: translateY(0px);
+        opacity: 1 !important;
+      }
+
+      path {
+        transform: scaleY(1);
+      }
+    }
+  </style>
+  <line id="linetop" x1="10" y1="1" x2="30" y2="1" stroke-width="2"/>
+  <line id="linemiddle" x1="10" y1="11" x2="30" y2="11" stroke-width="2"/>
+  <line id="linebottom" x1="10" y1="20" x2="30" y2="20" stroke-width="2"/>
+  <path id="arrowtop" d="M4.35355 0.646447C4.15829 0.451184 3.84171 0.451184 3.64645 0.646447L0.464466 3.82843C0.269204 4.02369 0.269204 4.34027 0.464466 4.53553C0.659728 4.7308 0.976311 4.7308 1.17157 4.53553L4 1.70711L6.82843 4.53553C7.02369 4.7308 7.34027 4.7308 7.53553 4.53553C7.7308 4.34027 7.7308 4.02369 7.53553 3.82843L4.35355 0.646447ZM4.5 9L4.5 1H3.5L3.5 9H4.5Z"/>
+  <path id="arrowbottom" d="M3.64645 20.3536C3.84171 20.5488 4.15829 20.5488 4.35355 20.3536L7.53553 17.1716C7.7308 16.9763 7.7308 16.6597 7.53553 16.4645C7.34027 16.2692 7.02369 16.2692 6.82843 16.4645L4 19.2929L1.17157 16.4645C0.97631 16.2692 0.659728 16.2692 0.464466 16.4645C0.269204 16.6597 0.269204 16.9763 0.464466 17.1716L3.64645 20.3536ZM3.5 12L3.5 20H4.5L4.5 12H3.5Z"/>
+</svg>

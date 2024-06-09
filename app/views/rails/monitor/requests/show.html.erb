@@ -1,20 +1,26 @@
 <%= turbo_frame_tag :request do %>
   <div data-controller="tabs">
-    <ul class="flex border-b">
-      <li data-action="click->tabs#nav" data-tabs-target="tab" target="controller" class="current">Controller</li>
-      <li data-action="click->tabs#nav" data-tabs-target="tab" target="models">
-        Models
-        <% if @request.models.present? %>
-          <span><%= @request.models.values.sum %></span>
-        <% end %>
-      </li>
-      <li data-action="click->tabs#nav" data-tabs-target="tab" target="queries">
-        Queries
-        <% if @request.queries.present? %>
-          <span><%= @request.queries.size %></span>
-        <% end %>
-      </li>
-    </ul>
+    <div class="flex items-center justify-between border-b">
+      <ul class="flex">
+        <li data-action="click->tabs#nav" data-tabs-target="tab" target="controller" class="current">Controller</li>
+        <li data-action="click->tabs#nav" data-tabs-target="tab" target="models">
+          Models
+          <% if @request.models.present? %>
+            <span><%= @request.models.values.sum %></span>
+          <% end %>
+        </li>
+        <li data-action="click->tabs#nav" data-tabs-target="tab" target="queries">
+          Queries
+          <% if @request.queries.present? %>
+            <span><%= @request.queries.size %></span>
+          <% end %>
+        </li>
+      </ul>
+
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 mr-2 rotate-45 cursor-pointer hover:scale-110 hover:text-indigo-500" data-action="click->home#closeRequest">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+      </svg>
+    </div>
 
     <div data-tabs-target="panel" id="controller">
       <%= render 'rails/monitor/requests/show/controller' %>

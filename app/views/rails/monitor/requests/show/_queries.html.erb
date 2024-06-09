@@ -4,9 +4,9 @@
       <div class="flex items-center h-6 mb-2">
         <h3 class="mr-4 font-bold"><%= query[:title] %></h3>
 
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 mr-auto transition-all cursor-pointer formatted:rotate-90 hover:text-indigo-500" data-action="click->code-syntax#toggleFormat">
-          <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
-        </svg>
+        <span class="[--color1:--color-indigo-500] [--color2:--color-gray-800] mr-auto cursor-pointer" data-action="click->code-syntax#toggleFormat">
+          <%= render 'rails/monitor/icons/expand', css_class_expanded: 'formatted' %>
+        </span>
 
         <div class="items-center justify-center hidden gap-1 py-1 text-xs font-semibold text-gray-500 border rounded cursor-pointer group-hover:flex w-36 hover:text-indigo-500 transition-color hover:border-indigo-500" data-action="click->code-syntax#copyClipboard">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 copied:hidden">
