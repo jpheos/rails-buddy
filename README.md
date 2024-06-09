@@ -5,20 +5,15 @@ Short description and motivation.
 How to use my plugin.
 
 ## Installation
-Add this line to your application's Gemfile:
+Add this line to your application's Gemfile in **development** group:
 
 ```ruby
-gem "rails-monitor"
+gem 'rails-monitor', git: 'https://github.com/jpheos/rails-monitor', branch: 'main'
 ```
 
 And then execute:
 ```bash
 $ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install rails-monitor
 ```
 
 Rails::Monitor works without any configuration. Just go to http://localhost:3000/monitoring.
