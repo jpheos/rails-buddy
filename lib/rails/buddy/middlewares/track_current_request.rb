@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rails
   module Buddy
     class TrackCurrentRequest
@@ -9,22 +11,26 @@ module Rails
         Buddy::Current.ignore = Buddy.config.ignore_request?(env)
         return @app.call(env) if Buddy::Current.ignore?
 
-
-        request = ::Rack::Request.new(env)
-
         Buddy::Current.new_request!(env)
-        ret = @app.call(env)
 
-
-        request = Buddy::Current.pop_request!
-        if request
-          request.status = ret[0]
-          Buddy::RequestsBuffer.push(request)
-
-          Turbo::StreamsChannel.broadcast_append_to :requests, target: :requests, partial: 'rails/buddy/requests/request', locals: { request: }
+        @app.call(env).tap do |response|
+          save_request(response)
         end
+      end
 
-        ret
+      private
+
+      def save_request(response)
+        request = Buddy::Current.pop_request!
+        return unless request
+
+        request.status = response[0]
+        Buddy::RequestsBuffer.push(request)
+
+        Turbo::StreamsChannel.broadcast_append_to :requests,
+                                                  target: :requests,
+                                                  partial: 'rails/buddy/requests/request',
+                                                  locals: { request: }
       end
     end
   end

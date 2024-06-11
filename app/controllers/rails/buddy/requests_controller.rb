@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rails
   module Buddy
     class RequestsController < ApplicationController
@@ -15,9 +17,7 @@ module Rails
         redirect_to root_path
       end
 
-      def close
-
-      end
+      def close; end
     end
   end
 end

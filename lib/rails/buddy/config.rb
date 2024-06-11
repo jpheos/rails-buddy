@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rails
   module Buddy
     class Config
@@ -14,7 +16,7 @@ module Rails
       end
 
       def ignore_request?(env)
-        [prefix, "/assets"].any? { |s| env['PATH_INFO'].start_with? s } || env['HTTP_UPGRADE'] == 'websocket'
+        [prefix, '/assets'].any? { |s| env['PATH_INFO'].start_with? s } || env['HTTP_UPGRADE'] == 'websocket'
       end
 
       private

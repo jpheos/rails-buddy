@@ -1,13 +1,15 @@
-require "rails/buddy/version"
+# frozen_string_literal: true
+
+require 'rails/buddy/version'
 
 module Rails
   module Buddy
-    autoload :VERSION, "rails/buddy/version"
-    autoload :Config, "rails/buddy/config"
-    autoload :Current, "rails/buddy/current"
-    autoload :Request, "rails/buddy/request"
-    autoload :RequestsBuffer, "rails/buddy/requests_buffer"
-    autoload :Tracker, "rails/buddy/tracker"
+    autoload :VERSION, 'rails/buddy/version'
+    autoload :Config, 'rails/buddy/config'
+    autoload :Current, 'rails/buddy/current'
+    autoload :Request, 'rails/buddy/request'
+    autoload :RequestsBuffer, 'rails/buddy/requests_buffer'
+    autoload :Tracker, 'rails/buddy/tracker'
 
     class << self
       def config
@@ -21,4 +23,4 @@ module Rails
   end
 end
 
-require "rails/buddy/engine"
+require 'rails/buddy/engine'

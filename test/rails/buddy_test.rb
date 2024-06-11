@@ -1,7 +1,11 @@
-require "test_helper"
+# frozen_string_literal: true
 
-class Rails::BuddyTest < ActiveSupport::TestCase
-  test "it has a version number" do
-    assert Rails::Buddy::VERSION
+require 'test_helper'
+
+module Rails
+  class BuddyTest < ActiveSupport::TestCase
+    test 'it has a version number' do
+      assert Rails::Buddy::VERSION
+    end
   end
 end

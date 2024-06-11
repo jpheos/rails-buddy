@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'middlewares/track_current_request'
 
 module Rails
@@ -5,7 +7,7 @@ module Rails
     class Engine < ::Rails::Engine
       isolate_namespace Rails::Buddy
 
-      initializer 'rails_buddy.init' do |app|
+      initializer 'rails_buddy.init' do |_app|
         RequestsBuffer.init
       end
 
@@ -26,7 +28,7 @@ module Rails
         ]
       end
 
-      initializer 'rails_buddy.subscribe' do |app|
+      initializer 'rails_buddy.subscribe' do |_app|
         require_relative 'subscribers/action_controller'
         Subscribers::ActionController.subscribe
         require_relative 'subscribers/active_record'

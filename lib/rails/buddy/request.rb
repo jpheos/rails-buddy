@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rails
   module Buddy
     class Request
@@ -6,7 +8,7 @@ module Rails
 
         def from_rack_env(rack_env)
           @request = ::Rack::Request.new(rack_env)
-          new(path: path, method:)
+          new(path:, method:)
         end
 
         def path = request.fullpath
@@ -24,7 +26,7 @@ module Rails
       attr_reader :request_id, :path, :method, :time, :models, :queries
       attr_accessor :request, :response, :meta, :status
 
-      alias_method :id, :request_id
+      alias id request_id
 
       def initialize(path:, method:)
         @request_id = SecureRandom.uuid

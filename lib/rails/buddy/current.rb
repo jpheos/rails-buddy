@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 module Rails
   module Buddy
     class Current < ActiveSupport::CurrentAttributes
       attribute :request
       attribute :ignore
 
-      alias_method :ignore?, :ignore
+      alias ignore? ignore
 
       def new_request!(rack_env)
         self.request = Request.from_rack_env(rack_env)
