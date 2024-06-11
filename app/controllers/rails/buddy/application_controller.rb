@@ -1,0 +1,6 @@
+module Rails
+  module Buddy
+    class ApplicationController < ActionController::Base
+    end
+  end
+end

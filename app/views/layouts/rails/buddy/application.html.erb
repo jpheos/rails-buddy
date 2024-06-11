@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rails Buddy</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    "rails/buddy/application", media: "all" %>
+  <%= javascript_include_tag "rails/buddy/application", media: "all" %>
+</head>
+<body data-controller="home" data-action="keydown.esc->home#closeRequest">
+  <%= yield %>
+</body>
+</html>

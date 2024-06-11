@@ -7,8 +7,8 @@
     "tailwindcss": "^3.4.3"
   },
   "scripts": {
-    "build": "esbuild app/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds/rails/monitor",
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/rails/monitor/application.css -o ./app/assets/builds/rails/monitor/application.css --minify"
+    "build": "esbuild app/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds/rails/buddy",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/rails/buddy/application.css -o ./app/assets/builds/rails/buddy/application.css --minify"
   },
   "devDependencies": {
     "esbuild": "^0.21.4"

@@ -1,7 +1,0 @@
-<%= link_to "#{Rails::Monitor.config.prefix}/requests/#{request.id}", class: 'request-line', data: {turbo_frame: :request} do %>
-  <span class="method method--<%= request.method %>"><%= request.method %></span>
-  <p class="px-4 truncate"><%= request.path %></p>
-  <span class="status status--<%= request.familly_status.dasherize %>"><%= request.status %></span>
-  <span class="truncate"><%= request.meta&.dig(:controller) %></span>
-  <span class="truncate"><%= request.meta&.dig(:action) %></span>
-<% end %>

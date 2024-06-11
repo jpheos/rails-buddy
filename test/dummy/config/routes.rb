@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Rails::Monitor::Engine => "/rails-monitor"
+  mount Rails::Buddy::Engine => "/rails-buddy"
 end

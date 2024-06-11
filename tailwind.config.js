@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin')
 module.exports = {
   content: [
     './app/views/**/*.html.erb',
-    './app/assets/stylesheets/rails/monitor/tailwind.css'
+    './app/assets/stylesheets/rails/buddy/tailwind.css'
   ],
   theme: {
     extend: {

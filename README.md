@@ -1,4 +1,4 @@
-# Rails::Monitor
+# Rails::Buddy
 Short description and motivation.
 
 ## Usage
@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile in **development** group:
 
 ```ruby
-gem 'rails-monitor', git: 'https://github.com/jpheos/rails-monitor', branch: 'main'
+gem 'rails-buddy', git: 'https://github.com/jpheos/rails-buddy', branch: 'main'
 ```
 
 And then execute:
@@ -16,12 +16,12 @@ And then execute:
 $ bundle
 ```
 
-Rails::Monitor works without any configuration. Just go to http://localhost:3000/monitoring.
+Rails::Buddy works without any configuration. Just go to http://localhost:3000/buddy.
 
 If you want configure option, just run:
 
 ```bash
-$ rails g rails:monitor:config
+$ rails g rails:buddy:config
 ```
 
 ## Contributing
