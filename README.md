@@ -4,6 +4,7 @@
 
 Buddy is a gem designed to assist you in the development of your Rails application. Currently, it provides monitoring capabilities, but the goal is to evolve it to include additional metrics and features over time.
 
+![demo monitoring](https://raw.githubusercontent.com/jpheos/rails-buddy/media/demo/monitoring.gif)
 
 ## Usage
 
