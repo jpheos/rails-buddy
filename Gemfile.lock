@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails-buddy (0.1.0)
+    rails-buddy (1.0.0)
       rails (~> 7)
 
 GEM
