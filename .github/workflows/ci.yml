@@ -1,0 +1,19 @@
+name: "CI"
+on:
+  push:
+    branches: [ "main", "staging" ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Lint Ruby files
+        run: bundle exec rubocop

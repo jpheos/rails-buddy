@@ -7,6 +7,10 @@ require:
 AllCops:
   Exclude:
     - test/dummy/bin
+  <% `git status --ignored --porcelain`.lines.grep(/^!! /).each do |path| %> # Is a way to not run rubocop on git ignored file.
+    - '<%= path.sub(/^!! /, '').strip %>'
+    - '<%= path.sub(/^!! /, '').strip %>**/*'
+  <% end %>
   NewCops: enable
   TargetRubyVersion: 3.1
 

@@ -1,3 +1,5 @@
+[![Ci Status](https://github.com/jpheos/rails-buddy/actions/workflows/ci.yml/badge.svg)](https://github.com/jpheos/rails-buddy/actions)
+
 # Rails::Buddy
 Short description and motivation.
 
