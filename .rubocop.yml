@@ -8,6 +8,7 @@ require:
 AllCops:
   Exclude:
     - spec/dummy/bin
+    - spec/dummy/db/schema.rb
   <% `git status --ignored --porcelain`.lines.grep(/^!! /).each do |path| %> # Is a way to not run rubocop on git ignored file.
     - '<%= path.sub(/^!! /, '').strip %>'
     - '<%= path.sub(/^!! /, '').strip %>**/*'

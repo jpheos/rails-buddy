@@ -17,3 +17,30 @@ jobs:
           bundler-cache: true
       - name: Lint Ruby files
         run: bundle exec rubocop
+  rspec:
+    runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Redis Server in GitHub Actions
+        uses: supercharge/redis-github-action@1.4.0
+
+      - name: Set up database schema
+        run: bin/rails db:schema:load
+
+      - name: Build assets
+        run: bundle exec rails app:assets:precompile
+
+      - name: Run tests
+        run: bundle exec rspec
