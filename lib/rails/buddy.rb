@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails/buddy/version'
+require 'turbo-rails'
 
 module Rails
   module Buddy
