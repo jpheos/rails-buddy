@@ -7,6 +7,13 @@ module Rails
     class Engine < ::Rails::Engine
       isolate_namespace Rails::Buddy
 
+      config.generators do |generator|
+        generator.helper false
+        generator.skip_routes true
+        generator.system_tests nil
+        generator.test_framework :rspec
+      end
+
       initializer 'rails_buddy.init' do |_app|
         RequestsBuffer.init
       end
