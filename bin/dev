@@ -6,6 +6,6 @@ then
   gem install foreman
 fi
 
-echo -e "css: yarn build:css --watch\njs: yarn build --watch" > /tmp/Procfile.rails_buddy_dev
+echo -e "web: rails server -p 3000\ncss: yarn build:css --watch\njs: yarn build --watch" > /tmp/Procfile.rails_buddy_dev
 
 foreman start -f /tmp/Procfile.rails_buddy_dev --root=.
