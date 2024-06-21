@@ -21,11 +21,11 @@
   }
 
   .h-navbar {
-    height: 4rem;
+    @apply h-16;
   }
 
   .h-full-nonav {
-    height: calc(100vh - 4rem);
+    height: calc(100vh - theme(spacing.16));
   }
 }
 
