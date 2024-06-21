@@ -41,6 +41,11 @@ module Dummy
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |generator|
+      generator.helper false, views_specs: false
+      generator.skip_routes true
+      generator.system_tests nil
+      generator.test_framework :rspec
+    end
   end
 end
