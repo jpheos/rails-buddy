@@ -12,3 +12,4 @@
 /node_modules
 /vendor
 /app/assets/builds/rails/buddy/application.js.map
+spec/dummy/app/assets/builds/

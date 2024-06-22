@@ -39,7 +39,13 @@ jobs:
       - name: Set up database schema
         run: bin/rails db:schema:load
 
-      - name: Build assets
+      - name: install yarn package
+        run: yarn install
+
+      - name: Build dummy assets (css + js)
+        run: yarn build:dummy:css ; yarn build:dummy
+
+      - name: Build assets (gem)
         run: bundle exec rails app:assets:precompile
 
       - name: Run tests
