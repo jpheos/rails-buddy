@@ -22,5 +22,12 @@ Metrics/BlockLength:
     - spec/dummy/config/environments/production.rb
     - spec/dummy/config/environments/test.rb
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - '**/*.erb_spec.rb'
+
 Style/Documentation:
   Enabled: false

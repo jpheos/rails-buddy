@@ -8,7 +8,9 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/application.js --bundle --sourcemap --outdir=app/assets/builds/rails/buddy",
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/rails/buddy/application.css -o ./app/assets/builds/rails/buddy/application.css --minify"
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/rails/buddy/application.css -o ./app/assets/builds/rails/buddy/application.css --minify",
+    "build:dummy": "esbuild ./spec/dummy/app/javascript/application.js --bundle --sourcemap --outdir=./spec/dummy/app/assets/builds",
+    "build:dummy:css": "tailwindcss --config=./spec/dummy/tailwind.config.js -i ./spec/dummy/app/assets/stylesheets/application.css -o ./spec/dummy/app/assets/builds/application.css --minify"
   },
   "devDependencies": {
     "esbuild": "^0.21.4"

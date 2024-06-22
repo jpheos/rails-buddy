@@ -1,2 +1,75 @@
-<h1>Examples#index</h1>
-<p>Find me in app/views/examples/index.html.erb</p>
+<div class="example">
+  <h1 class="mb-8">Requests examples</h1>
+
+  <h3 class="mb-2">Simple requests</h3>
+
+  <ul>
+    <li>
+      <%= link_to   'Get',     get_path %>
+    </li>
+    <li>
+      <%= button_to 'Post',    post_path,    method: :post %>
+    </li>
+    <li>
+      <%= button_to 'Put',     put_path,     method: :put %>
+    </li>
+    <li>
+      <%= button_to 'Patch',   patch_path,   method: :patch %>
+    </li>
+    <li>
+      <%= button_to 'Delete',  delete_path,  method: :delete %>
+    </li>
+  </ul>
+
+  <h3 class="mb-2">Simple requests</h3>
+
+  <% article = Article.last %>
+
+  <ul>
+    <li>
+      <%= link_to   'Index',     articles_path %>
+    </li>
+    <li>
+      <%= link_to   'New',     new_article_path %>
+    </li>
+    <li>
+      <%=  form_with(model: Article.new(title: 'title', content: 'Content')) do |f| %>
+        <%= f.hidden_field :title  %>
+        <%= f.hidden_field :content  %>
+        <%= button_tag 'Create' %>
+      <% end %>
+    </li>
+    <li>
+      <% if article %>
+        <%= link_to   'Show',     article_path(article) %>
+      <% else %>
+        <%= button_to 'Show', '#', disabled: true %>
+      <% end %>
+    </li>
+    <li>
+      <% if article %>
+        <%= link_to   'Edit',     edit_article_path(article) %>
+      <% else %>
+        <%= button_to 'Edit', '#', disabled: true %>
+      <% end %>
+    </li>
+    <li>
+      <% if article %>
+        <%=  form_with(model: article) do |f| %>
+          <%= f.hidden_field :title  %>
+          <%= f.hidden_field :content  %>
+          <%= button_tag 'Update' %>
+        <% end %>
+      <% else %>
+        <%= button_to 'Update', '#', disabled: true %>
+      <% end %>
+    </li>
+    <li>
+      <% if article %>
+        <%= button_to 'Destroy', article_path(article), method: :delete %>
+      <% else %>
+        <%= button_to 'Destroy', '#', disabled: true %>
+      <% end %>
+    </li>
+  </ul>
+</div>

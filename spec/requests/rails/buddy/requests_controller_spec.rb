@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Rails::Buddy::RequestsController, type: :request do
+describe Rails::Buddy::RequestsController do
   describe '#index' do
     before { get '/buddy' }
 

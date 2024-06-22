@@ -1,0 +1,5 @@
+web: rails server -p 3000
+css: yarn build:css --watch
+js: yarn build --watch
+dummy_js: yarn build:dummy --watch
+dummy_css: yarn build:dummy:css --watch
