@@ -7,12 +7,16 @@ module Rails
       DEFAULT_PATH_PREFIX = '/buddy'
 
       attr_accessor :prefix, :buffer_size
+      attr_reader :enabled
+
+      alias enabled? enabled
 
       def initialize(options = {})
         opt = defaults.merge options
 
         @prefix       = opt[:prefix]
         @buffer_size  = opt[:buffer_size]
+        @enabled = opt[:enabled]
       end
 
       def ignore_request?(env)

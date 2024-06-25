@@ -29,5 +29,8 @@ RSpec/MultipleExpectations:
   Exclude:
     - '**/*.erb_spec.rb'
 
+RSpec/NestedGroups:
+  Max: 4
+
 Style/Documentation:
   Enabled: false
