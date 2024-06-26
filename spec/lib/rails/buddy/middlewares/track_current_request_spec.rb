@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe Rails::Buddy::TrackCurrentRequest, type: :request do
+describe Rails::Buddy::Middlewares::TrackCurrentRequest, type: :request do
   subject(:do_request) { get path }
 
   let(:path) { '/get' }

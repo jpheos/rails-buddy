@@ -19,7 +19,7 @@ module Rails
       end
 
       initializer 'rails_buddy.middlewares' do |app|
-        app.middleware.insert_after ActionDispatch::Executor, TrackCurrentRequest
+        app.middleware.insert_after ActionDispatch::Executor, Middlewares::TrackCurrentRequest
       end
 
       initializer 'rails_buddy.routing' do |app|

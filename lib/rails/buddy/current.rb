@@ -8,6 +8,11 @@ module Rails
 
       alias ignore? ignore
 
+      resets do
+        self.request = nil
+        self.ignore = true
+      end
+
       def new_request!(rack_env)
         self.request = Request.from_rack_env(rack_env)
       end
