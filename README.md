@@ -1,3 +1,4 @@
+[![Gem version](https://img.shields.io/gem/v/rails-buddy)](https://rubygems.org/gems/rails-buddy)
 [![Ci Status](https://github.com/jpheos/rails-buddy/actions/workflows/ci.yml/badge.svg)](https://github.com/jpheos/rails-buddy/actions)
 
 # Rails::Buddy
