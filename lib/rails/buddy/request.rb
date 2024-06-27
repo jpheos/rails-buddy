@@ -11,12 +11,14 @@ module Rails
           new(path:, method:)
         end
 
+        private
+
         def path = request.fullpath
 
         def method
           request_method = request.env['REQUEST_METHOD'].downcase.to_sym
-          if request_method == :post
-            request.params['_method'].presence&.to_sym || request_method
+          if request_method == :post && request.params.key?('_method')
+            request.params['_method'].to_sym
           else
             request_method
           end

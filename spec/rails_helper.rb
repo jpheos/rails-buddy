@@ -5,6 +5,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require_relative 'dummy/config/environment'
 require 'rspec/rails'
+require 'support/factory_bot'
 
 begin
   ActiveRecord::Migration.maintain_test_schema!

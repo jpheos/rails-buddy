@@ -94,6 +94,8 @@ GEM
     diff-lcs (1.5.1)
     drb (2.2.1)
     erubi (1.13.0)
+    factory_bot (6.4.6)
+      activesupport (>= 5.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -285,6 +287,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  factory_bot
   puma
   rails-buddy!
   rspec-rails

@@ -10,6 +10,7 @@ gemspec
 
 group :development, :test do
   gem 'awesome_print'
+  gem 'factory_bot'
   gem 'puma'
   gem 'rspec-rails'
   gem 'rubocop'
