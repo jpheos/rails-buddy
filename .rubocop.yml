@@ -31,6 +31,8 @@ RSpec/MultipleExpectations:
   Exclude:
     - '**/*.erb_spec.rb'
 
+RSpec/IndexedLet:
+  Enabled: false
 RSpec/NamedSubject:
   Enabled: false
 RSpec/NestedGroups:
