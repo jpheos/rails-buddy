@@ -17,7 +17,7 @@ module Rails
         end
 
         def track?
-          !Buddy::Current.ignore? && Current.request
+          !Current.ignore? && Current.request
         end
       end
     end
