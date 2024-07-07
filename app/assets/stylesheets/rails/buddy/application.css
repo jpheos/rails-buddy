@@ -83,3 +83,29 @@
 [data-tabs-target="panel"] {
   @apply p-4;
 }
+
+.request__views {
+  ul {
+    @apply list-disc pl-4;
+  }
+
+  .badge-view {
+    @apply uppercase font-semibold text-sm;
+  }
+
+  .badge-view--layout {
+    @apply text-purple-900;
+  }
+
+  .badge-view--template {
+    @apply text-purple-700;
+  }
+
+  .badge-view--collection {
+    @apply text-purple-500;
+  }
+
+  .badge-view--partial {
+    @apply text-purple-300;
+  }
+}

@@ -1,7 +1,7 @@
 <div class="example">
-  <h1 class="mb-8">Requests examples</h1>
+  <h1 class="mb-2">Requests examples</h1>
 
-  <h3 class="mb-2">Simple requests</h3>
+  <h3 class="mt-4 mb-2">Simple requests</h3>
 
   <ul>
     <li>
@@ -21,7 +21,7 @@
     </li>
   </ul>
 
-  <h3 class="mb-2">Simple requests</h3>
+  <h3 class="mt-4 mb-2">Crud</h3>
 
   <% article = Article.last %>
 
@@ -71,5 +71,13 @@
         <%= button_to 'Destroy', '#', disabled: true %>
       <% end %>
     </li>
+  </ul>
+
+  <h3 class="mt-4 mb-2">Views and render</h3>
+
+  <ul>
+    <% RenderController.public_instance_methods(false).each do |type| %>
+      <li><%= link_to type, polymorphic_path([:render, type]) %></li>
+    <% end %>
   </ul>
 </div>

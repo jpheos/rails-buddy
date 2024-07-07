@@ -37,6 +37,7 @@ module Rails
         @method = method
         @models = Hash.new(0)
         @queries = []
+        @view_partials = []
       end
 
       def familly_status
@@ -58,10 +59,45 @@ module Rails
         @queries << query
       end
 
+      def add_view(type:, view:, parent:, count: 1)
+        @view_partials << { type:, view:, count:, parent: }
+      end
+
       def action_definition
         return unless meta[:controller] && meta[:action]
 
         meta[:controller].constantize.instance_method(meta[:action]).source_location.join(':')
+      end
+
+      def views
+        @views ||= partials_structured
+      end
+
+      private
+
+      def partials_structured # rubocop:disable Metrics/MethodLength
+        reconcilate_layout_and_template
+        deep = []
+
+        @view_partials.reverse_each do |partial|
+          node = create_node_from_partial(partial)
+          if deep.present?
+            deep.pop while deep.last[:file] != partial[:parent]
+            deep.last[:children] << node
+          end
+          deep << node
+        end
+        deep.first
+      end
+
+      def reconcilate_layout_and_template
+        layout = @view_partials.find { |p| p[:type] == :layout }
+        template = @view_partials.find { |p| p[:type] == :template }
+        template[:parent] = layout[:view] if layout && template
+      end
+
+      def create_node_from_partial(partial)
+        { file: partial[:view], children: [], type: partial[:type], count: partial[:count] }
       end
     end
   end

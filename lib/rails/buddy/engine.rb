@@ -38,6 +38,8 @@ module Rails
       initializer 'rails_buddy.subscribe' do |_app|
         require_relative 'subscribers/action_controller'
         Subscribers::ActionController.subscribe
+        require_relative 'subscribers/action_view'
+        Subscribers::ActionView.subscribe
         require_relative 'subscribers/active_record'
         Subscribers::ActiveRecord.subscribe
       end

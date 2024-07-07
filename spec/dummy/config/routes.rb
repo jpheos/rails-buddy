@@ -9,5 +9,9 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  RenderController.public_instance_methods(false).each do |method|
+    get "render/#{method}", to: "render##{method}"
+  end
+
   root to: 'examples#index'
 end

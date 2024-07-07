@@ -1,0 +1,20 @@
+<% path = node[:file].gsub(Rails.root.join('app/views').to_s, '') %>
+<% path = path.split('/gems/').last %>
+<% start_path = path.split('/')[0..-2].join('/') %>
+<% end_path = path.split('/').last %>
+<% count = node[:count] %>
+
+<li>
+  <%= link_to "vscode://file#{node[:file]}", class: 'group text-black hover:text-black' do %>
+    <span class="text-gray-500"><%= start_path %>/</span><span class="font-semibold"><%= end_path %></span>
+    <span class="badge-view badge-view--<%= node[:type] %>"><%= node[:type] %></span>
+    <% if count > 1 %>
+      <span class="badge"><%= count %></span>
+    <% end %>
+    <span class="hidden text-xs text-indigo-500 group-hover:inline">Open in Vscode</span>
+  <% end %>
+
+  <ul>
+    <%= render partial: 'rails/buddy/requests/show/views_tree_partials', collection: node[:children], as: :node %>
+  </ul>
+</li>

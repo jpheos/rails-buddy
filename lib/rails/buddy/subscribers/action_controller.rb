@@ -10,8 +10,6 @@ module Rails
 
         class << self
           def process_action(event)
-            return if prevent_processing?
-
             meta = event.payload
             meta.delete :headers
             meta.merge!({
@@ -25,8 +23,6 @@ module Rails
           end
 
           private
-
-          def prevent_processing? = Current.ignore? || Current.request.nil?
 
           def save_meta_in_current_request(meta)
             Current.request.request = meta.delete(:request)

@@ -1,0 +1,9 @@
+<div class="request__views">
+  <% if views %>
+    <ul>
+      <%= render 'rails/buddy/requests/show/views_tree_partials', node: views %>
+    </ul>
+  <% else %>
+    No views found
+  <% end %>
+</div>
